@@ -1,0 +1,34 @@
+# Compiled source #
+###################
+*.pyc
+
+# Packages #
+############
+*.egg
+*.jar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+*.db
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Python files #
+#####################
+build/
+local_init.py
+
