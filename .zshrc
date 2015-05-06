@@ -95,12 +95,11 @@ alias b='broccoli'
 alias nsd='npm install --save-dev'
 
 # Random aliases
-alias fuck='sudo $(fc -ln -1)'
-alias gus='dolop dev -s'
+alias fuck='sudo $(fc -ln -1)' # Rerun last command with sudo
 alias c='clear'
 alias cpwd='pwd | pbcopy'
-alias ish='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
-alias allow='sudo xattr -d -r com.apple.quarantine'
+alias ish='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' # insecure shell
+alias allow='sudo xattr -d -r com.apple.quarantine' # Make osx stop pestering you about running a new program
 alias travistest="python -c 'import yaml, os; [os.system(script) for script in yaml.load(open(\".travis.yml\"))[\"script\"]]'"
 alias tt=travistest
 
