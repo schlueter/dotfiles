@@ -39,11 +39,6 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-# Python files #
-#####################
-build/
-local_init.py
-
 # Sublime Files #
 #################
 *.sublime-project
