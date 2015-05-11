@@ -16,7 +16,6 @@ plugins=(
     history
     hub
     lol
-    mercurial
     osx
     python
     rbenv
@@ -100,7 +99,6 @@ alias c='clear'
 alias cpwd='pwd | pbcopy'
 alias ish='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' # insecure shell
 alias allow='sudo xattr -d -r com.apple.quarantine' # Make osx stop pestering you about running a new program
-alias travistest="python -c 'import yaml, os; [os.system(script) for script in yaml.load(open(\".travis.yml\"))[\"script\"]]'"
 alias tt=travistest
 
 # Setup env tools
