@@ -56,7 +56,6 @@ export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
 # Aliases
-alias .z='TASKS=1 source ~/.zshrc'
 
 # Vagrant
 alias vb='vagrant box'
@@ -75,6 +74,7 @@ gitCheckoutAndPull () { gco $1 && gl }
 alias gcb='git checkout -b'
 alias gch='gco HEAD'
 alias gcml='git checkout master && git pull'
+alias gcdl='git checkout develop && git pull'
 alias gcol=gitCheckoutAndPull
 alias gf='git fetch'
 alias ghi="git log  \
@@ -96,6 +96,7 @@ alias b='broccoli'
 alias nsd='npm install --save-dev'
 
 # Random aliases
+alias .z='TASKS=1 source ~/.zshrc'
 alias fuck='sudo $(fc -ln -1)' # Rerun last command with sudo
 alias c='clear'
 alias cpwd='pwd | pbcopy'
@@ -117,4 +118,3 @@ source ~/.secrets
 if [[ -z $TASKS ]]; then
     jira ls
 fi
-
