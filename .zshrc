@@ -56,7 +56,7 @@ export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
 # Aliases
-alias .z='source ~/.zshrc'
+alias .z='TASKS=1 source ~/.zshrc'
 
 # Vagrant
 alias vb='vagrant box'
@@ -107,9 +107,14 @@ alias tt=travistest
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 
-# added by travis gem
-[ -f /Users/blue/.travis/travis.sh ] && source /Users/blue/.travis/travis.sh
-jira ls
-
 # Secret stuff goes in here so you can't see it
 source ~/.secrets
+
+# added by travis gem
+[ -f /Users/blue/.travis/travis.sh ] && source /Users/blue/.travis/travis.sh
+
+# Display current tickets
+if [[ -z $TASKS ]]; then
+    jira ls
+fi
+
