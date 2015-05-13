@@ -88,6 +88,8 @@ alias grp='git read-tree --prefix'
 alias gs='git stash'
 alias gsp='git stash pop'
 alias git=hub
+alias gpr='git pull-request'
+alias gw='git browse'
 
 # Node aliases
 alias b='broccoli'
