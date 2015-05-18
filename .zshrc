@@ -3,6 +3,7 @@
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="blusch"
 COMPLETION_WAITING_DOTS="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(
     autojump
@@ -55,6 +56,9 @@ export RBENV_ROOT=/usr/local/var/rbenv
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
+# git
+source ~/.git-completion
+
 # Aliases
 
 # Vagrant
@@ -70,12 +74,14 @@ alias vu='vagrant up'
 alias vup='vagrant up --provision'
 
 # Git aliases
-gitCheckoutAndPull () { gco $1 && gl }
+function gitCheckoutAndPull () { gco $1 && gl }
+function gitDeleteBranchLocalAndOrigin () { gb -d $1 && gp origin :$1 }
 alias gcb='git checkout -b'
 alias gch='gco HEAD'
 alias gcml='git checkout master && git pull'
 alias gcdl='git checkout develop && git pull'
 alias gcol=gitCheckoutAndPull
+alias gdl=gitDeleteBranchLocalAndOrigin
 alias gf='git fetch'
 alias ghi="git log  \
 --graph \
@@ -87,9 +93,11 @@ alias gmm='git pull origin master'
 alias grp='git read-tree --prefix'
 alias gs='git stash'
 alias gsp='git stash pop'
-alias git=hub
 alias gpr='git pull-request'
 alias gw='git browse'
+
+# alias git=hub # Don't do this, use the function instead
+function git(){hub $@}
 
 # Node aliases
 alias b='broccoli'
@@ -114,7 +122,9 @@ source ~/.secrets
 # added by travis gem
 [ -f /Users/blue/.travis/travis.sh ] && source /Users/blue/.travis/travis.sh
 
-# Display current tickets
-if [[ -z $TASKS ]]; then
+HOUR=$(date +%H)
+DAY_OF_WEEK=$(date +%u)
+# Display current tickets during working hours
+if [[ -z $TASKS && $HOUR > 7 && $HOUR < 20 && $DAY_OF_WEEK < 6 ]]; then
     jira ls
 fi
