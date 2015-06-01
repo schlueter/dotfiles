@@ -128,3 +128,5 @@ DAY_OF_WEEK=$(date +%u)
 if [[ -z $TASKS && $HOUR > 7 && $HOUR < 20 && $DAY_OF_WEEK < 6 ]]; then
     jira ls
 fi
+export R29=~/workspace/r29
+export ws=~/workspace
