@@ -118,12 +118,10 @@ alias ish='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' # in
 alias allow='sudo xattr -d -r com.apple.quarantine' # Make osx stop pestering you about running a new program
 alias tt=travistest
 
-# Setup env tools
-eval "$(rbenv init -)"
-eval "$(pyenv init -)"
-
 # Secret stuff goes in here so you can't see it
 source ~/.secrets
+
+alias car=create_ansible_role
 
 # added by travis gem
 [ -f /Users/blue/.travis/travis.sh ] && source /Users/blue/.travis/travis.sh
