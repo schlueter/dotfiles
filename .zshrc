@@ -35,6 +35,10 @@ plugins=(
     zsh_reload
 )
 
+# nvm
+# this must go before the nvm plugin is loaded
+export NVM_DIR=~/.nvm
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -56,10 +60,6 @@ export PYENV_ROOT=/usr/local/opt/pyenv
 
 #rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
-
-# nvm
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
 
 # git
 source ~/.git-completion
