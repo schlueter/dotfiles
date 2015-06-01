@@ -96,7 +96,8 @@ alias gsp='git stash pop'
 alias gpr='git pull-request'
 alias gw='git browse'
 
-# alias git=hub # Don't do this, use the function instead
+# Don't do this, use the function instead
+# alias git=hub
 function git(){hub $@}
 
 # Node aliases
