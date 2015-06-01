@@ -2,14 +2,21 @@
 # vi: set ft=python :
 from __future__ import print_function
 
-import sys, traceback
+import sys
+import traceback
 import random
+import yaml
 from pprint import pprint as pp
+from jinja2 import Template
 
 try:
     from local_init import *
 except:
     pass
+
+assert yaml
+assert pp
+assert Template
 
 try:
     from django.core.management import setup_environ
@@ -33,6 +40,20 @@ try:
 except:
     pass
 
+available = """
+Loaded:
+- print_function from the future
+
+- sys
+- traceback
+- random
+- yaml
+- pprint as pp
+- jinja2's Template
+- create_password(length)
+- print_exc_plus()
+
+"""
 def create_password(length):
     print(''.join([chr(random.randint(32,126)) for i in range(length)]))
 
@@ -68,3 +89,5 @@ def print_exc_plus():
                 print(value)
             except:
                 print("<ERROR WHILE PRINTING VALUE>")
+
+print(available)
