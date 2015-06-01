@@ -7,9 +7,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(
     autojump
-    cpv
     bower
     brew
+    cpv
     django
     gem
     git
@@ -17,6 +17,11 @@ plugins=(
     history
     hub
     lol
+    nvm
+    nyan
+    per-directory-history
+    pip
+    pyenv
     osx
     python
     rbenv
