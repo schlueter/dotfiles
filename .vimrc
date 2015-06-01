@@ -106,3 +106,6 @@ vmap ,x :%!tidy -q -i --show-errors 0<CR>
 
 let g:closetag_html_style=1
 au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
