@@ -1,7 +1,20 @@
 # -*- mode: python -*-
 # vi: set ft=python :
-from __future__ import print_function
 
+"""
+Loaded:
+- print_function from the future
+- sys
+- traceback
+- random
+- yaml
+- pprint as pp
+- jinja2's Template
+- create_password(length)
+- print_exc_plus()
+"""
+
+from __future__ import print_function
 import sys
 import traceback
 import random
@@ -26,7 +39,8 @@ try:
     try:
         exec_strs = [
             "from %s.models import *" % apps for apps in
-		settings.INSTALLED_APPS]
+                settings.INSTALLED_APPS
+        ]
         for x in exec_strs:
             try:
                 exec(x)
@@ -40,20 +54,6 @@ try:
 except:
     pass
 
-available = """
-Loaded:
-- print_function from the future
-
-- sys
-- traceback
-- random
-- yaml
-- pprint as pp
-- jinja2's Template
-- create_password(length)
-- print_exc_plus()
-
-"""
 def create_password(length):
     print(''.join([chr(random.randint(32,126)) for i in range(length)]))
 
@@ -90,4 +90,4 @@ def print_exc_plus():
             except:
                 print("<ERROR WHILE PRINTING VALUE>")
 
-print(available)
+print(__doc__)
