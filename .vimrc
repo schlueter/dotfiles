@@ -1,3 +1,21 @@
+" Vundle
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'terryma/vim-multiple-cursors'
+
+call vundle#end()
+filetype plugin on
+
 " Visuals
 set laststatus=2
 set wrap
@@ -6,7 +24,6 @@ set wrap
 set visualbell
 set noerrorbells
 
-set nocompatible
 set history=1000
 set undolevels=1000
 
@@ -23,11 +40,11 @@ nmap <silent> ,/ :nohlsearch<CR>
 
 " Change backup behaviour
 set backupdir=~/.vim/tmp,.
-"set nobackup
-"set noswapfile
 
-"filetype settings
+
 filetype plugin indent on
+
+set noswapfile
 
 "turn off autoindent for paste
 set pastetoggle=<F3>
@@ -39,11 +56,14 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-s> <C-w>s
 
+" Remove trailing whitespace
+autocmd BufWritePre *.py,*.yml,*.yaml :%s/\s\+$//e
+
 " Sudo save
 cmap w!! w !sudo tee % >/dev/null
 
-"no blink in normal mode
-set gcr=n:blinkon0
+" Search for word under cursor
+vnoremap // y/<C-R>"<CR>
 
 "solarized
 syntax enable
@@ -56,42 +76,11 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
-"helpful mappings
-inoremap " ""<left>
-inoremap "" "
-inoremap """ """<CR><CR>"""<up>
-inoremap """" """
-inoremap '' <right>
-"inoremap [ []<left>
-"inoremap [[ [
-"inoremap { {}<left>
-inoremap {% {%  %}<left><left><left>
-inoremap {{ {{  }}<left><left><left>
-inoremap {{{ {
-inoremap {} {}
-"inoremap ( ()<left>
-"inoremap (( (
-
 " Diff of current state and current saved state
-map <F2> :w !diff % -<CR>
-
-" NERDTree
-map <F5> :NERDTreeToggle<CR>
-
-" Pydiction
-let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
-
-" Syntastic
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
-
-"let g:syntastic_mode_map = { 'mode': 'active',
-"	\ 'active_filetypes': [],
-"	\ 'passive_filetypes': ['html'] }
-"let g:syntastic_python_checker="pyflakes"
+map <F2> :w !diff '%' -<CR>
 
 " turn-on distraction free writing mode for markdown files
-"au BufNewFile,BufRead *.{md,mdown,mkd,mkdn,markdown,mdwn} call DistractionFreeWriting()
+au BufNewFile,BufRead *.{md,mdown,mkd,mkdn,markdown,mdwn} call DistractionFreeWriting()
 
 "Distraction free writing settings
 let g:fullscreen_colorscheme = "iawriter"
@@ -107,5 +96,12 @@ vmap ,x :%!tidy -q -i --show-errors 0<CR>
 let g:closetag_html_style=1
 au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
+"Always change working dir to current file dir
+autocmd BufEnter * silent! lcd %:p:h
+
+"Set command and input cursors
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+"Set up clipboard
+set clipboard=unnamed
