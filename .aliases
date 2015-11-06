@@ -1,0 +1,96 @@
+# -*- mode: zsh -*-
+# vi: set ft=zsh :
+
+# Vagrant
+alias vb='vagrant box'
+alias vd='vagrant destroy'
+alias vd!='vagrant destroy -f'
+alias vgs='vagrant global-status'
+alias vh='vagrant halt'
+alias vp='vagrant provision'
+alias vr='vagrant reload'
+alias vs='vagrant ssh'
+alias vu='vagrant up'
+alias vup='vagrant up --provision'
+alias vun='vagrant up --no-provision'
+alias vbu='vagrant box update'
+
+# Vagrant plugins
+## vbox-snapshot
+alias vst='vagrant snapshot take'
+alias vsl='vagrant snapshot list'
+alias vsb='vagrant snapshot back'
+alias vsd='vagrant snapshot delete'
+alias vsg='vagrant snapshot go'
+
+# Git aliases
+function gitCheckoutAndPull () { git checkout $1 && git pull }
+function gitDeleteBranchLocalAndOrigin () { git branch --delete $1 && git push origin :$1 }
+function gitForceDeleteBranchLocalAndOrigin () { git branch -D $1 && git push origin :$1 }
+function gitPrimaryBranch () { git rev-parse --symbolic-full-name origin }
+function gitCheckoutPullRequest () {
+  [[ -z "$3" ]] && remote=upstream || remote=$3
+  [[ -z "$2" ]] && branch=PR$1 || branch=$2
+  git fetch $remote pull/$1/head:$branch
+  git checkout $branch
+}
+alias pb=gitPrimaryBranch
+alias gcb='git checkout -b'
+alias gch='gco HEAD'
+alias gcml='git checkout $(basename $(gitPrimaryBranch)) && git pull'
+alias gcul='git checkout $(basename $(gitPrimaryBranch)) && git pull upstream $(basename $(gitPrimaryBranch))'
+alias gcol=gitCheckoutAndPull
+alias gcop=gitCheckoutPullRequest
+alias gdl=gitDeleteBranchLocalAndOrigin
+alias gddl=gitForceDeleteBranchLocalAndOrigin
+alias gdm='git diff $( gitPrimaryBranch )'
+alias gf='git fetch'
+alias ghi="git log  \
+--graph \
+--decorate=short \
+--pretty=format:'%Cblue%ad%Creset %C(yellow)%h%Creset%C(red)%d%Creset | %s [%C(green)%an%Creset]' \
+--date=short"
+alias gma='git merge --abort'
+alias gmm='git pull origin master'
+alias gp!='git push -f'
+alias grc='git rebase --continue'
+alias grbs='git rebase --skip'
+alias grp='git read-tree --prefix'
+alias grbm='git rebase $( gitPrimaryBranch )'
+alias gs='git stash'
+alias gsp='git stash pop'
+alias gsu='git branch --set-upstream-to'
+
+# git aliases for hub
+alias gppr='git push && git pull-request'
+alias gpr='git pull-request'
+alias gw='git browse'
+
+# Don't do this, it doesn't work, use the function instead
+# alias git=hub
+function git () { hub $@ }
+
+# Node aliases
+alias b='broccoli'
+alias nsd='npm install --save-dev'
+
+# Random aliases
+alias .z='TASKS=1 source ~/.zshrc'
+alias fuck='sudo $(fc -ln -1)' # Rerun last command with sudo
+alias c='clear'
+alias cpwd='pwd | pbcopy'
+alias ish='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' # insecure shell
+alias allow='sudo xattr -d -r com.apple.quarantine' # Make osx stop pestering you about running a new program
+alias tt=travistest
+alias car=create_ansible_role
+
+alias cb=current_branch
+
+function realpath() {
+    if [[ $1 = /* ]]; then
+        echo "$1"
+    else
+        echo "$PWD/${1#./}"
+    fi
+}
+
