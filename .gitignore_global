@@ -60,3 +60,5 @@ bower_components/
 *.swn
 # I can't help you anymore
 *.swm
+.traviscitest_result
+local-*
