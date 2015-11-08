@@ -83,3 +83,5 @@ export ws=~/workspace
 
 touch ~/.todo
 cat ~/.todo
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
