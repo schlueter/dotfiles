@@ -27,6 +27,7 @@ call plug#begin()
   Plug 'pangloss/vim-javascript'
   Plug 'plasticboy/vim-markdown'
   Plug 'powerline/powerline',  {'rtp': 'powerline/bindings/vim/'}
+  Plug 'schlueter/zsh-ft'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tmux-plugins/vim-tmux'
   Plug 'tpope/vim-commentary', {'on': '<Plug>Commentary'}
