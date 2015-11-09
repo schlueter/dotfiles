@@ -111,10 +111,10 @@ alias grbu='grb upstream/$(gpbb)'
 alias grh='git reset HEAD'
 alias grhh='grh --hard'
 alias grm='git rm'
+alias gs='gst -s'
+alias gsb='gs -b'
 alias gsta='git stash'
-alias gsb='gss -b'
-alias gstap='gs pop'
-alias gss='gst -s'
+alias gstap='gsta pop'
 alias gst='git status'
 alias gsup='git branch --set-upstream-to'
 alias gsupo='git branch --set-upstream-to=origin/$(git_current_branch)'
@@ -139,6 +139,8 @@ alias tt=travistest
 alias car=create_ansible_role
 
 function realpath() {
-    [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+    [[ $1 = /* ]] \
+      && echo "$1" \
+      || echo "$PWD/${1#./}"
 }
 
