@@ -14,7 +14,6 @@ call plug#begin()
   Plug 'junegunn/seoul256.vim'
   Plug 'junegunn/vader.vim',      {'on': 'Vader', 'for': 'vader'}
   Plug 'junegunn/vim-easy-align', {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
-  Plug 'junegunn/vim-emoji'
   Plug 'junegunn/vim-fnr'
   Plug 'junegunn/vim-github-dashboard', {'on': ['GHDashboard', 'GHActivity']}
   Plug 'junegunn/vim-journal'
@@ -24,10 +23,11 @@ call plug#begin()
   Plug 'junegunn/vim-ruby-x',  {'on': 'RubyX'}
   Plug 'kchmck/vim-coffee-script'
   Plug 'mbbill/undotree',      {'on': 'UndotreeToggle'}
+  Plug 'navicore/vissort.vim'
   Plug 'pangloss/vim-javascript'
   Plug 'plasticboy/vim-markdown'
   Plug 'powerline/powerline',  {'rtp': 'powerline/bindings/vim/'}
-  Plug 'schlueter/zsh-ft'
+  Plug 'schlueter/zsh-ft.vim'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tmux-plugins/vim-tmux'
   Plug 'tpope/vim-commentary', {'on': '<Plug>Commentary'}
@@ -141,108 +141,3 @@ let g:Powerline_symbols = 'fancy'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Fugitive
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" %< Where to truncate
-" %n buffer number
-" %F Full path
-" %m Modified flag: [+], [-]
-" %r Readonly flag: [RO]
-" %y Type:          [vim]
-" fugitive#statusline()
-" %= Separator
-" %-14.(...)
-" %l Line
-" %c Column
-" %V Virtual column
-" %P Percentage
-" %#HighlightGroup#
-set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
-silent! if emoji#available()
-  let s:ft_emoji = map({
-    \ 'c':          'baby_chick',
-    \ 'clojure':    'lollipop',
-    \ 'coffee':     'coffee',
-    \ 'cpp':        'chicken',
-    \ 'css':        'art',
-    \ 'eruby':      'ring',
-    \ 'gitcommit':  'soon',
-    \ 'haml':       'hammer',
-    \ 'help':       'angel',
-    \ 'html':       'herb',
-    \ 'java':       'older_man',
-    \ 'javascript': 'monkey',
-    \ 'make':       'seedling',
-    \ 'markdown':   'book',
-    \ 'perl':       'camel',
-    \ 'python':     'snake',
-    \ 'ruby':       'gem',
-    \ 'scala':      'barber',
-    \ 'sh':         'shell',
-    \ 'slim':       'dancer',
-    \ 'text':       'books',
-    \ 'vim':        'poop',
-    \ 'vim-plug':   'electric_plug',
-    \ 'yaml':       'yum',
-    \ 'yaml.jinja': 'yum'
-  \ }, 'emoji#for(v:val)')
-
-  function! S_filetype()
-    if empty(&filetype)
-      return emoji#for('grey_question')
-    else
-      return get(s:ft_emoji, &filetype, '['.&filetype.']')
-    endif
-  endfunction
-
-  function! S_modified()
-    if &modified
-      return emoji#for('kiss').' '
-    elseif !&modifiable
-      return emoji#for('construction').' '
-    else
-      return ''
-    endif
-  endfunction
-
-  function! S_fugitive()
-    if !exists('g:loaded_fugitive')
-      return ''
-    endif
-    let head = fugitive#head()
-    if empty(head)
-      return ''
-    else
-      return head == 'master' ? emoji#for('crown') : emoji#for('dango').'='.head
-    endif
-  endfunction
-
-  let s:braille = split('"⠉⠒⠤⣀', '\zs')
-  function! Braille()
-    let len = len(s:braille)
-    let [cur, max] = [line('.'), line('$')]
-    let pos  = min([len * (cur - 1) / max([1, max - 1]), len - 1])
-    return s:braille[pos]
-  endfunction
-
-  hi def link User1 TablineFill
-  let s:cherry = emoji#for('cherry_blossom')
-  function! MyStatusLine()
-    let mod = '%{S_modified()}'
-    let ro  = "%{&readonly ? emoji#for('lock') . ' ' : ''}"
-    let ft  = '%{S_filetype()}'
-    let fug = ' %{S_fugitive()}'
-    let sep = ' %= '
-    let pos = ' %l,%c%V '
-    let pct = ' %P '
-
-    return s:cherry.' [%n] %F %<'.mod.ro.ft.fug.sep.pos.'%{Braille()}%*'.pct.s:cherry
-  endfunction
-
-  " Note that the "%!" expression is evaluated in the context of the
-  " current window and buffer, while %{} items are evaluated in the
-  " context of the window that the statusline belongs to.
-  set statusline=%!MyStatusLine()
-endif  
