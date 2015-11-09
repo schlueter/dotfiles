@@ -48,9 +48,8 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 
 touch ~/.todo && cat ~/.todo
 
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+[[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]] \
+  && source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
 unsetopt CORRECT
 
