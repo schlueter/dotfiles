@@ -21,7 +21,7 @@ zstyle ':prezto:load' pmodule \
   'tmux' \
   'utility'
 
-zstyle ':prezto:module:prompt' theme 'paradox'
+zstyle ':prezto:module:prompt' theme 'paradox_bs'
 zstyle ':prezto:module:editor' key-bindings 'emacs'
 zstyle ':prezto:module:editor' dot-expansion 'yes'
 
