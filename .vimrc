@@ -54,16 +54,12 @@ filetype plugin indent on
 
 set laststatus=2
 set wrap
-set visualbell
-set noerrorbells
+set visualbell noerrorbells
 set history=1000
 set undolevels=1000
 set hidden
-set hlsearch
-set incsearch
-set showmatch
-set backupdir=~/.vim/tmp,.
-set noswapfile
+set hlsearch incsearch showmatch
+set backupdir=~/.vim/tmp,. noswapfile
 set pastetoggle=<F3>
 set clipboard=unnamed
 
@@ -118,6 +114,9 @@ if exists('&relativenumber')
   au FocusGained * :set relativenumber
   autocmd InsertLeave * :set relativenumber
 endif
+
+" Spaces, not tabs
+set expandtab tabstop=4 shiftwidth=4
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Solarized
