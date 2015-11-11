@@ -18,6 +18,7 @@ typeset -gU cdpath fpath mailpath path
 path=(
   $HOME/bin
   /opt/chefdk/bin
+  /Applications/Postgres.app/Contents/Versions/9.4/bin
   /usr/local/{bin,sbin}
   $path
 )
