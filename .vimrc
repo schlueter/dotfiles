@@ -127,7 +127,8 @@ set modelines=10
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable
 set background=dark
-colorscheme koehler
+let g:seoul256_background = 236
+colo seoul256
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Gojo
