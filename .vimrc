@@ -119,6 +119,9 @@ endif
 " Spaces, not tabs
 set expandtab tabstop=4 shiftwidth=4
 
+" Make modelines work
+set modelines=10
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Solarized
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
