@@ -1,12 +1,11 @@
 zstyle ':prezto:*:*' color 'yes'
 
 zstyle ':prezto:load' pmodule \
+  'environment' \
   'completion' \
   'directory' \
   'editor' \
-  'environment' \
   'git' \
-  'gpg' \
   'history' \
   'homebrew' \
   'node' \
@@ -15,25 +14,15 @@ zstyle ':prezto:load' pmodule \
   'python' \
   'ruby' \
   'spectrum' \
-  'ssh' \
   'syntax-highlighting' \
   'terminal' \
-  'tmux' \
   'utility'
 
 zstyle ':prezto:module:prompt' theme 'paradox_bs'
+
 zstyle ':prezto:module:editor' key-bindings 'emacs'
 zstyle ':prezto:module:editor' dot-expansion 'yes'
 
-zstyle ':prezto:module:history-substring-search:color' found ''
-zstyle ':prezto:module:history-substring-search:color' not-found ''
-zstyle ':prezto:module:history-substring-search' globbing-flags ''
-
-zstyle ':prezto:module:tmux:auto-start' local 'yes'
-zstyle ':prezto:module:tmux:auto-start' remote 'yes'
-zstyle ':prezto:module:tmux:iterm' integrate 'yes'
-
-zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
 
 zstyle ':prezto:module:terminal' auto-title 'yes'
 zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
