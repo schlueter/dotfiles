@@ -7,6 +7,7 @@ call plug#begin()
   Plug 'ConradIrwin/vim-bracketed-paste'
   Plug 'Glench/Vim-Jinja2-Syntax'
   Plug 'airblade/vim-gitgutter'
+  Plug 'bling/vim-airline'
   Plug 'junegunn/fzf',           {'do': 'yes \| ./install'}
   Plug 'junegunn/goyo.vim',      {'on': 'Goyo'}
   Plug 'junegunn/limelight.vim', {'on':  'Limelight'}
@@ -26,7 +27,6 @@ call plug#begin()
   Plug 'navicore/vissort.vim'
   Plug 'pangloss/vim-javascript'
   Plug 'plasticboy/vim-markdown'
-  Plug 'powerline/powerline',  {'rtp': 'powerline/bindings/vim/'}
   Plug 'schlueter/zsh-ft.vim'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tmux-plugins/vim-tmux'
