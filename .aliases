@@ -140,8 +140,11 @@ alias ish='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 alias tt=travistest
 
 function realpath() {
-    [[ $1 = /* ]] \
-      && echo "$1" \
-      || echo "$PWD/${1#./}"
+    if [[ $1 = /* ]]
+    then
+        echo "$1"
+    else
+        echo "$PWD/${1#./}"
+    fi
 }
 
