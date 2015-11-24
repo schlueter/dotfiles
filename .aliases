@@ -148,3 +148,9 @@ function realpath() {
     fi
 }
 
+function git-cherry-pick-file () {
+    git cherry-pick -n $1
+    git reset HEAD
+    git add $2
+    git checkout $(git rev-parse --show-toplevel)
+}
