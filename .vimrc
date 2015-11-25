@@ -88,7 +88,7 @@ nmap <silent> ,/ :nohlsearch<CR>
 vnoremap // y/<C-R>"<CR>
 
 " Remove trailing whitespace
-autocmd BufWritePre *.py,*.yml,*.yaml :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
 
 "Html linting
 let g:closetag_html_style=1
