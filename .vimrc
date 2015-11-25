@@ -120,6 +120,17 @@ set expandtab tabstop=4 shiftwidth=4
 " Make modelines work
 set modelines=10
 
+" Shortcut buffer switching to # \ where # in 1..99
+let c = 1
+while c <= 99
+  execute "nnoremap " . c . "<Leader> :" . c . "b\<CR>"
+  let c += 1
+endwhile
+
+" Some buffer switching shortcuts
+nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>n :bn<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
