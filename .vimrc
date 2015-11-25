@@ -120,6 +120,9 @@ set expandtab tabstop=4 shiftwidth=4
 " Make modelines work
 set modelines=10
 
+" Display Whitespace
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,nbsp:%
+
 " Shortcut buffer switching to # \ where # in 1..99
 let c = 1
 while c <= 99
