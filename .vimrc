@@ -91,9 +91,7 @@ vnoremap // y/<C-R>"<CR>
 autocmd BufWritePre * :%s/\s\+$//e
 
 "Html linting
-let g:closetag_html_style=1
 vmap ,x :%!tidy -q -i --show-errors 0<CR>
-au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
 "Always change working dir to current file dir
 autocmd BufEnter * silent! lcd %:p:h
