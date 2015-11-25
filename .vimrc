@@ -57,8 +57,7 @@ filetype plugin indent on
 set laststatus=2
 set wrap
 set visualbell noerrorbells
-set history=1000
-set undolevels=1000
+set history=1000 undolevels=1000
 set hidden
 set hlsearch incsearch showmatch
 set backupdir=~/.vim/tmp,. noswapfile
