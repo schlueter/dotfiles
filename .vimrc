@@ -8,6 +8,7 @@ call plug#begin()
   Plug 'Glench/Vim-Jinja2-Syntax'
   Plug 'airblade/vim-gitgutter'
   Plug 'bling/vim-airline'
+  Plug 'fholgado/minibufexpl.vim'
   Plug 'junegunn/fzf',           {'do': 'yes \| ./install'}
   Plug 'junegunn/goyo.vim',      {'on': 'Goyo'}
   Plug 'junegunn/limelight.vim', {'on':  'Limelight'}
