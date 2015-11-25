@@ -1,3 +1,9 @@
+zprezto_init="${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [[ -s "zprezto_init" ]]
+then
+    source "zprezto_init"
+fi
+
 [[ "$OSTYPE" == darwin* ]] && export BROWSER='open'
 
 export EDITOR='vim'
@@ -32,7 +38,8 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 
 # Set the Less input preprocessor.
 # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
-if (( $#commands[(i)lesspipe(|.sh)] )); then
+if (( $#commands[(i)lesspipe(|.sh)] ))
+then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
@@ -40,7 +47,8 @@ fi
 # Temporary Files
 #
 
-if [[ ! -d "$TMPDIR" ]]; then
+if [[ ! -d "$TMPDIR" ]]
+then
   export TMPDIR="/tmp/$LOGNAME"
   mkdir -p -m 700 "$TMPDIR"
 fi
@@ -48,9 +56,6 @@ fi
 TMPPREFIX="${TMPDIR%/}/zsh"
 
 touch ~/.todo && cat ~/.todo
-
-[[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]] \
-  && source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
 unsetopt CORRECT
 
@@ -74,3 +79,5 @@ touch ~/.git-completion && source ~/.git-completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PYTHONSTARTUP=~/.pythonrc
+
+fpath=(/usr/local/share/zsh-completions $fpath)
