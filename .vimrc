@@ -121,7 +121,7 @@ set expandtab tabstop=4 shiftwidth=4
 set modelines=10
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Solarized
+" Theme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable
 set background=dark
