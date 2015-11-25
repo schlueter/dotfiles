@@ -1,7 +1,7 @@
-zprezto_init="${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-if [[ -s "zprezto_init" ]]
+zprezto_init=
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]
 then
-    source "zprezto_init"
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 [[ "$OSTYPE" == darwin* ]] && export BROWSER='open'
