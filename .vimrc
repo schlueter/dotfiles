@@ -14,23 +14,22 @@ call plug#begin()
   Plug 'junegunn/limelight.vim', {'on':  'Limelight'}
   Plug 'junegunn/rainbow_parentheses.vim'
   Plug 'junegunn/seoul256.vim'
-  Plug 'junegunn/vader.vim',      {'on': 'Vader', 'for': 'vader'}
-  Plug 'junegunn/vim-easy-align', {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
-  Plug 'junegunn/vim-fnr'
-  Plug 'junegunn/vim-github-dashboard', {'on': ['GHDashboard', 'GHActivity']}
-  Plug 'junegunn/vim-journal'
-  Plug 'junegunn/vim-oblique'
-  Plug 'junegunn/vim-peekaboo'
-  Plug 'junegunn/vim-pseudocl'
-  Plug 'junegunn/vim-ruby-x',  {'on': 'RubyX'}
-  Plug 'kchmck/vim-coffee-script'
-  Plug 'mbbill/undotree',      {'on': 'UndotreeToggle'}
+  "Plug 'junegunn/vader',      {'on': 'Vader', 'for': 'vader'}
+  "Plug 'junegunn/vim-easy-align', {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
+  "Plug 'junegunn/vim-fnr'
+  "Plug 'junegunn/vim-github-dashboard', {'on': ['GHDashboard', 'GHActivity']}
+  "Plug 'junegunn/vim-journal'
+  "Plug 'junegunn/vim-oblique'
+  "Plug 'junegunn/vim-peekaboo'
+  "Plug 'junegunn/vim-pseudocl'
+  "Plug 'junegunn/vim-ruby-x',  {'on': 'RubyX'}
+  "Plug 'kchmck/vim-coffee-script'
+  "Plug 'mbbill/undotree',      {'on': 'UndotreeToggle'}
   Plug 'navicore/vissort.vim'
-  Plug 'pangloss/vim-javascript'
-  Plug 'plasticboy/vim-markdown'
+  "Plug 'pangloss/vim-javascript'
+  "Plug 'plasticboy/vim-markdown'
   Plug 'schlueter/zsh-ft.vim'
-  Plug 'terryma/vim-multiple-cursors'
-  Plug 'tmux-plugins/vim-tmux'
+  "Plug 'terryma/vim-multiple-cursors'
   Plug 'tpope/vim-commentary', {'on': '<Plug>Commentary'}
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-fugitive'
@@ -141,6 +140,18 @@ syntax enable
 set background=dark
 let g:seoul256_background = 236
 colo seoul256
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Airline Theme
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" let g:airline_left_sep='>'
+" let g:airline_right_sep='<'
+let g:airline_inactive_collapse=1
+let g:airline_powerline_fonts=1
+let g:airline_exclude_filenames = ['MiniBufExplorer']
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Limelight
