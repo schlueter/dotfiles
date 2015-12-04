@@ -60,7 +60,7 @@ touch ~/.todo && cat ~/.todo
 unsetopt CORRECT
 
 ############################################################
-# Custom shit
+# Custom stuff
 ############################################################
 touch ~/.aliases && source ~/.aliases
 touch  ~/.secrets && source ~/.secrets
@@ -68,7 +68,7 @@ touch  ~/.secrets && source ~/.secrets
 export R29=~/workspace/r29
 
 ############################################################
-# Third party shit
+# Third party stuff
 ############################################################
 [[ -d /usr/local/opt/autoenv ]] && source /usr/local/opt/autoenv/activate.sh
 
