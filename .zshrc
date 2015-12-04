@@ -78,6 +78,8 @@ touch ~/.git-completion && source ~/.git-completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+which pyenv > /dev/null && eval "$(pyenv init -)"
+
 export PYTHONSTARTUP=~/.pythonrc
 
 fpath=(/usr/local/share/zsh-completions $fpath)
