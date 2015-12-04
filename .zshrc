@@ -24,6 +24,7 @@ path=(
   $HOME/bin
   /opt/chefdk/bin
   /Applications/Postgres.app/Contents/Versions/9.4/bin
+  $(brew --prefix coreutils)/libexec/gnubin
   /usr/local/{bin,sbin}
   $path
 )
