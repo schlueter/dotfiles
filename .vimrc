@@ -14,22 +14,8 @@ call plug#begin()
   Plug 'junegunn/limelight.vim', {'on':  'Limelight'}
   Plug 'junegunn/rainbow_parentheses.vim'
   Plug 'junegunn/seoul256.vim'
-  "Plug 'junegunn/vader',      {'on': 'Vader', 'for': 'vader'}
-  "Plug 'junegunn/vim-easy-align', {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
-  "Plug 'junegunn/vim-fnr'
-  "Plug 'junegunn/vim-github-dashboard', {'on': ['GHDashboard', 'GHActivity']}
-  "Plug 'junegunn/vim-journal'
-  "Plug 'junegunn/vim-oblique'
-  "Plug 'junegunn/vim-peekaboo'
-  "Plug 'junegunn/vim-pseudocl'
-  "Plug 'junegunn/vim-ruby-x',  {'on': 'RubyX'}
-  "Plug 'kchmck/vim-coffee-script'
-  "Plug 'mbbill/undotree',      {'on': 'UndotreeToggle'}
   Plug 'navicore/vissort.vim'
-  "Plug 'pangloss/vim-javascript'
-  "Plug 'plasticboy/vim-markdown'
   Plug 'schlueter/zsh-ft.vim'
-  "Plug 'terryma/vim-multiple-cursors'
   Plug 'tpope/vim-commentary', {'on': '<Plug>Commentary'}
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-fugitive'
@@ -80,7 +66,7 @@ map <F2> :w !diff '%' -<CR>
 " Sudo save
 cmap w!! w !sudo tee % >/dev/null
 
-",/ turns off hlsearch
+",/ turns off search highlighting
 nmap <silent> ,/ :nohlsearch<CR>
 
 " Search for word under cursor
@@ -89,10 +75,10 @@ vnoremap // y/<C-R>"<CR>
 " Remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
-"Html linting
+" Html linting
 vmap ,x :%!tidy -q -i --show-errors 0<CR>
 
-"Always change working dir to current file dir
+" Always change working dir to current file dir
 autocmd BufEnter * silent! lcd %:p:h
 
 " mouse
@@ -121,6 +107,15 @@ set modelines=10
 
 " Display Whitespace
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,nbsp:%
+
+" Because typos
+cmap W :w
+
+" Let's not
+cmap bd :q
+
+" MiniBufExplorer shortcuts
+nnoremap <Leader>q :MBEToggle<CR>
 
 " Shortcut buffer switching to # \ where # in 1..99
 let c = 1
