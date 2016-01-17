@@ -14,7 +14,6 @@ call plug#begin()
   Plug 'junegunn/limelight.vim', {'on':  'Limelight'}
   Plug 'junegunn/rainbow_parentheses.vim'
   Plug 'junegunn/seoul256.vim'
-  Plug 'navicore/vissort.vim'
   Plug 'schlueter/zsh-ft.vim'
   Plug 'tpope/vim-commentary', {'on': '<Plug>Commentary'}
   Plug 'tpope/vim-endwise'
@@ -40,7 +39,7 @@ filetype plugin on
 filetype plugin indent on
 
 set laststatus=2
-set wrap
+set wrap linebreak
 set visualbell noerrorbells
 set history=1000 undolevels=1000
 set hidden
@@ -100,7 +99,7 @@ if exists('&relativenumber')
 endif
 
 " Spaces, not tabs
-set expandtab tabstop=4 shiftwidth=4
+set expandtab tabstop=2 shiftwidth=2
 
 " Make modelines work
 set modelines=10
@@ -110,9 +109,6 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,nbsp:%
 
 " Because typos
 cmap W :w
-
-" Let's not
-cmap bd :q
 
 " MiniBufExplorer shortcuts
 nnoremap <Leader>q :MBEToggle<CR>
