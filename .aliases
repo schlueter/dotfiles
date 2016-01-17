@@ -1,5 +1,10 @@
 # vi: set ft=zsh :
 
+# Path shortcuts
+alias ...=../..
+alias ....=../../..
+alias .....=../../../..
+
 # Vagrant
 alias vb='vagrant box'
 alias vd='vagrant destroy'
@@ -89,12 +94,16 @@ alias gppr='git push && git pull-request'
 alias gpr='git pull-request'
 alias gw='git browse'
 
-#!!! An alias doesn't work, use the function instead !!!
+## Completions
+compdef _git gdv=git-diff
+compdef gfg=grep
+compdef _git gdl='git-branch -d'
+
+## Functions
+###!!! An alias doesn't work, use the function instead !!!
 git () { hub $@ }
 gdv() { git diff -w "$@" | view - }
-compdef _git gdv=git-diff
 gfg() { git ls-files | grep $@ }
-compdef gfg=grep
 git_current_branch () {
   local ref
   ref=$(git symbolic-ref --quiet HEAD 2> /dev/null)
