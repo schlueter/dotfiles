@@ -46,10 +46,13 @@ Thumbs.db
 
 # Build Artifacts #
 ###################
+*.appcache
+.bundle/
 .sass-cache/
 .vagrant/
 node_modules/
 bower_components/
+vendor/
 
 # Editor Cache files #
 ######################
