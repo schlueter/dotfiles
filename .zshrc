@@ -80,6 +80,8 @@ touch ~/.git-completion && source ~/.git-completion
 
 which pyenv > /dev/null && eval "$(pyenv init -)"
 
+[ -f "/usr/local/opt/nvm/nvm.sh" ] && . /usr/local/opt/nvm/nvm.sh
+
 export PYTHONSTARTUP=~/.pythonrc
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/Users/blue/.zsh-completions /usr/local/share/zsh-completions $fpath)
