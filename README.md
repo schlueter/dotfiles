@@ -1,4 +1,4 @@
-# Schlueter's dotfiles
+# [DEPRECATED] Schlueter's dotfiles
 
 The dotfiles I use to make my life easier.
 
